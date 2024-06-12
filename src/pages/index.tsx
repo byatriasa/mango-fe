@@ -1,12 +1,20 @@
 // next
 import Head from 'next/head'
 // @chakra
-import { Box, Button, Container, VStack } from '@chakra-ui/react'
-import { type InferFormValueType } from '~/utils/form'
+import {
+  Alert,
+  AlertIcon,
+  Box,
+  Button,
+  Container,
+  VStack
+} from '@chakra-ui/react'
+import { handleSubmitError, type InferFormValueType } from '~/utils/form'
 import { register } from '~/validators/applicant.validator'
-import { useForm } from 'react-hook-form'
+import { type SubmitHandler, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { RHFForm, RHFInput } from '~/components/hook-form'
+import applicantService from '~/services/applicant'
 
 type FormValue = InferFormValueType<typeof register>
 
@@ -30,8 +38,20 @@ export default function Home(): JSX.Element {
     handleSubmit
   } = methods
 
-  const handleRegister = async (data: FormValue): Promise<void> => {
-    console.log(data)
+  const handleRegister: SubmitHandler<FormValue> = async (values) => {
+    try {
+      await applicantService.postRegister(values)
+    } catch (err) {
+      let appliedErrorMessages = handleSubmitError(err)
+
+      if (!appliedErrorMessages)
+        appliedErrorMessages =
+          'Terjadi kesalahan saat mengirim data, silahkan coba lagi nanti.'
+
+      setError('afterSubmit', {
+        message: appliedErrorMessages
+      })
+    }
   }
 
   return (
@@ -84,6 +104,26 @@ export default function Home(): JSX.Element {
                 >
                   Submit
                 </Button>
+
+                {errors?.afterSubmit && (
+                  <Alert
+                    status='error'
+                    width='100%'
+                  >
+                    <AlertIcon />
+                    {errors.afterSubmit.message}
+                  </Alert>
+                )}
+
+                {isSubmitSuccessful && (
+                  <Alert
+                    status='success'
+                    width='100%'
+                  >
+                    <AlertIcon />
+                    Application has been registered successfully.
+                  </Alert>
+                )}
               </VStack>
             </RHFForm>
           </Box>
