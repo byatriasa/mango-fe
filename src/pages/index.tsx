@@ -99,7 +99,7 @@ export default function Home(): JSX.Element {
                   type='submit'
                   colorScheme='primary'
                   size='lg'
-                  isDisabled={isSubmitSuccessful}
+                  // isDisabled={isSubmitSuccessful}
                   isLoading={isSubmitting}
                 >
                   Submit
