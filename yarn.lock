@@ -1876,6 +1876,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@hookform/resolvers@npm:^3.6.0":
+  version: 3.6.0
+  resolution: "@hookform/resolvers@npm:3.6.0"
+  peerDependencies:
+    react-hook-form: ^7.0.0
+  checksum: 10c0/3577949a82b02b823b81592ec44630d28dc8748e9c42e57d8a19046670bb6d270d5e2c4780d65193c206bc18abb5575a0a5e261fa7aac17198faee1823208be6
+  languageName: node
+  linkType: hard
+
 "@humanwhocodes/config-array@npm:^0.11.14":
   version: 0.11.14
   resolution: "@humanwhocodes/config-array@npm:0.11.14"
@@ -6556,6 +6565,7 @@ __metadata:
     "@commitlint/config-conventional": "npm:^19.2.2"
     "@emotion/react": "npm:^11.11.4"
     "@emotion/styled": "npm:^11.11.5"
+    "@hookform/resolvers": "npm:^3.6.0"
     "@types/lodash": "npm:^4.17.4"
     "@types/luxon": "npm:^3.4.2"
     "@types/node": "npm:20.12.12"
@@ -6585,6 +6595,7 @@ __metadata:
     prettier: "npm:^3.2.5"
     react: "npm:18.3.1"
     react-dom: "npm:18.3.1"
+    react-hook-form: "npm:^7.51.5"
     sharp: "npm:0.33.4"
     swr: "npm:^2.2.5"
     typescript: "npm:5.3.3"
@@ -7470,6 +7481,15 @@ __metadata:
     "@types/react":
       optional: true
   checksum: 10c0/df239e96c2588c430cce08b2ac79dfd3c7e3cc5f6dfb6f6176d59eb82aec833badeb081022284ce72bf6740b10b1fcfbf9341206b35f4f4c70c4638c37f6ec83
+  languageName: node
+  linkType: hard
+
+"react-hook-form@npm:^7.51.5":
+  version: 7.51.5
+  resolution: "react-hook-form@npm:7.51.5"
+  peerDependencies:
+    react: ^16.8.0 || ^17 || ^18
+  checksum: 10c0/5b13f99a125d92ee618f2d4e218d5ec854f8cac1b568e83b4b125efb002cc79eef0f5c06b54015c78e16a830cf1ea356a646e8c6abb00b7ca8225dba9a92091e
   languageName: node
   linkType: hard
 
